@@ -1,4 +1,17 @@
+# The .section .init "ax" directive
+# This tells the assembler to place the following code in a section called 
+# .init. The "ax" flag means:
+# - a => allocatable (this section should be loaded into memory)
+# - x => executable (this section contains code that should be executed)
+#
+# If we track the .init section to our linker script, we have KEEP(*(.init));
+# as the very first thing in the .text section. This .init section is placed
+# at the beginning of flash memory (address 0x00000000 on the ch32v003). When
+# the processor comes out of reset, it starts executing code from address
+# 0x00000000. So whatever is in the .init section is literally the first code 
+# that runs when you power on the chip.
 .section .init, "ax"
+
 .global _start
 
 _start:
