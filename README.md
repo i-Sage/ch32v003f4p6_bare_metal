@@ -65,6 +65,14 @@ We can think of it like this: The address space of the processor is divded into 
 - 0x20000000 - 0x200007FF: RAM (2KB)
 - 0x40000000 - 0x4FFFFFFF: Peripherals (memory mapped registers)
 
+!NOTE: incomplete for now
+
+### The Blink Program
+
+#### The Clock System
+
+When our MCU 
+
 ```bash
 cargo build --release
 rust-objcopy -O binary target/riscv32imac-unknown-none-elf/release/ch32v003f4p6_bare_metal firmware.bin
