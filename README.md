@@ -56,7 +56,6 @@ Each sections-command may be one of the following:
 ### Memory-Mapped Register Addresses
 
 *the heart of embedded programming: memory-mapped I/O*
-
 In our MCU the ch32v003f4p6 in our case, peripherals (like GPIO, UART, timers, e.t.c) don't have special instructions to control them. Instead, they're controlled by reading and writing to specific memory addresses. The hardware is designed so that when we write to these special registers, we're not writing to RAM-we're we're writing to the GPIO peripheral's registers.
 
 We can think of it like this: The address space of the processor is divded into regions:
@@ -70,17 +69,3 @@ We can think of it like this: The address space of the processor is divded into 
 ### The Blink Program
 
 #### The Clock System
-
-When our MCU 
-
-```bash
-cargo build --release
-rust-objcopy -O binary target/riscv32imac-unknown-none-elf/release/ch32v003f4p6_bare_metal firmware.bin
-~/.platformio/packages/tool-openocd-riscv-wch/bin/openocd \
-  -f ~/.platformio/packages/tool-openocd-riscv-wch/bin/wch-riscv.cfg \
-  -c init \
-  -c halt \
-  -c "program firmware.bin 0x00000000 verify" \
-  -c "reset" \
-  -c "exit"
-```

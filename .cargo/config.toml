@@ -6,5 +6,7 @@ rustflags = [
     "-C", "link-arg=-Tmemory.x",
 ]
 
+runner = "bash flash.sh" 
+
 [unstable]
 build-std = ["core"]

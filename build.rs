@@ -17,10 +17,10 @@ fn main() {
     // Assemble the startup code
     // The cc crate knows how to invoke the assembler for our target
     cc::Build::new()
-        .file("src/startup.s")
+        .file("startup.s")
         .flag("-march=rv32imac")     // Match our target architecture
         .flag("-mabi=ilp32")          // Match our ABI (integer, long, pointer = 32-bit)
         .compile("startup");
     
-    println!("cargo:rerun-if-changed=src/startup.s");
+    println!("cargo:rerun-if-changed=startup.s");
 }

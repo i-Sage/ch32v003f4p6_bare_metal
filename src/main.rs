@@ -8,6 +8,7 @@ const RCC_APB2PCENR: *mut u32 = (RCC_BASE + 0x18) as *mut u32;
 
 const GPIOA_BASE: u32 = 0x4001_0800;
 const GPIOA_CFGLR: *mut u32 = (GPIOA_BASE + 0x00) as *mut u32;
+
 const GPIOA_OUTDR: *mut u32 = (GPIOA_BASE + 0x0C) as *mut u32;
 
 #[unsafe(no_mangle)]
@@ -46,6 +47,7 @@ pub extern "C" fn main() -> ! {
         counter = counter.wrapping_add(1);
     }
 }
+
 
 #[panic_handler]
 fn panic(_info: &PanicInfo) -> ! {

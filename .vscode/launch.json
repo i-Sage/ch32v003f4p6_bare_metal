@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "Debug (OpenOCD)",
+            "servertype": "openocd",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/target/riscv32imac-unknown-none-elf/debug/ch32v003f4p6_bare_metal",
+            "configFiles": [
+                "${env:HOME}/.platformio/packages/tool-openocd-riscv-wch/bin/wch-riscv.cfg"
+            ],
+            "gdbPath": "${env:HOME}/.platformio/packages/toolchain-riscv/bin/riscv-wch-elf-gdb",
+            "preLaunchTask": "cargo build debug",
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "both"
+        }
+    ]
+}
